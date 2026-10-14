@@ -1,0 +1,48 @@
+EMAIL THREAD — Kestrel Home — Warranty claim review (Variant C)
+Messages exchanged before this pack was sent. Provided as-is.
+========================================================================
+
+From: Ritu Deshpande, Head of D2C Operations, Kestrel Home
+To: Kabir Nanda, Account Lead (our side)
+Cc: Farhan Sheikh; Meenal Joshi; Tanmay Kulkarni
+Subject: Warranty fraud model
+
+Kabir - the board wants a fraud flag on warranty claims before payout. Accuracy above 97%, that's the KPI they've asked for. I'm fairly sure it's the newer partners, but let's have the data say it. Tanmay has the export.
+
+------------------------------------------------------------------------
+
+From: Tanmay Kulkarni, Data & IT Admin, Kestrel Home
+To: Kabir Nanda, Account Lead (our side)
+Cc: Ritu Deshpande; Farhan Sheikh; Meenal Joshi
+Subject: Export
+
+Attached - past claims with the investigation outcome, and the latest ones without. Partners re-submit claims when they're bounced, so the same claim number can show up twice. Cases still under investigation are blank in the CRM - but Zoho couldn't store blanks, so the old ones came across as 0. Serials are typed in by the partner, so expect some mess.
+
+------------------------------------------------------------------------
+
+From: Farhan Sheikh, Finance Controller, Kestrel Home
+To: Ritu Deshpande, Head of D2C Operations, Kestrel Home
+Cc: Meenal Joshi; Tanmay Kulkarni; Kabir Nanda
+Subject: Re: Warranty fraud model
+
+The investigation desk can look at forty claims a month, no more. Every genuine customer we hold costs us goodwill. So what I want to know is how much fraud we stop per claim we check, in rupees - not a percentage.
+
+------------------------------------------------------------------------
+
+From: Meenal Joshi, Service Desk Manager, Kestrel Home
+To: Ritu Deshpande, Head of D2C Operations, Kestrel Home
+Cc: Farhan Sheikh; Tanmay Kulkarni; Kabir Nanda
+Subject: Re: Warranty fraud model
+
+Since the May change the small claims have exploded - my team sees the same few outlets again and again. But please don't paint all the new partners with one brush, most of the new ones are fine and we need them in the smaller cities.
+
+------------------------------------------------------------------------
+
+From: Ritu Deshpande, Head of D2C Operations, Kestrel Home
+To: Kabir Nanda, Account Lead (our side)
+Cc: Farhan Sheikh; Meenal Joshi; Tanmay Kulkarni
+Subject: Re: Warranty fraud model
+
+Noted. Kabir: accuracy stays the KPI, it's what the board understands. And do look at the new partners.
+
+------------------------------------------------------------------------
