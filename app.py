@@ -23,7 +23,18 @@ app = FastAPI(
 
 # Load Reference Data and Artifacts
 MODELS_DIR = os.path.join(current_dir, 'models')
-DATA_DIR = os.path.join(current_dir, 'data')
+
+def resolve_data_path(filename):
+    candidates = [
+        os.path.join(current_dir, 'data', filename),
+        os.path.join(current_dir, filename),
+        os.path.join(os.getcwd(), 'data', filename),
+        os.path.join(os.getcwd(), filename),
+    ]
+    for p in candidates:
+        if os.path.exists(p):
+            return p
+    return candidates[0]
 
 try:
     with open(os.path.join(MODELS_DIR, 'xgb_model.pkl'), 'rb') as f:
@@ -32,8 +43,8 @@ try:
         partner_stats = pickle.load(f)
     with open(os.path.join(MODELS_DIR, 'feature_cols.json'), 'r') as f:
         feature_cols = json.load(f)
-    partners_df = pd.read_csv(os.path.join(DATA_DIR, 'partners.csv'))
-    products_df = pd.read_csv(os.path.join(DATA_DIR, 'products.csv'))
+    partners_df = pd.read_csv(resolve_data_path('partners.csv'))
+    products_df = pd.read_csv(resolve_data_path('products.csv'))
     print("Model, partner statistics, and product data loaded successfully.")
 except Exception as e:
     print(f"Warning: Initialization error: {e}")
@@ -232,8 +243,15 @@ def predict_claim(claim: ClaimRecord):
             content={
                 "claim_id": claim.claim_id,
                 "fraud_score": 0.05,
-                "risk_tier": "LOW",
+                "risk_tier": "LOW RISK",
                 "recommendation": "AUTO-APPROVE",
+                "action_code": "AUTO_APPROVE",
+                "financials": {
+                    "claim_amount_inr": float(claim.claim_amount_inr),
+                    "goodwill_risk_inr": 380.0,
+                    "expected_prevented_fraud_inr": 0.0,
+                    "net_roi_rupees": 0.0
+                },
                 "reasons": ["Service running in fallback mode (model artifact loading)."],
                 "notice": "Trained model artifact not loaded, returning safe baseline."
             }
@@ -908,14 +926,18 @@ def index():
                 list.appendChild(li);
             });
 
-            document.getElementById('finClaim').innerText = "₹" + data.financials.claim_amount_inr.toLocaleString();
-            const netEl = document.getElementById('finNet');
-            if (data.financials.net_roi_rupees > 0) {
-                netEl.innerText = "+₹" + data.financials.net_roi_rupees.toLocaleString();
-                netEl.style.color = "var(--success)";
-            } else {
-                netEl.innerText = "₹" + data.financials.net_roi_rupees.toLocaleString();
-                netEl.style.color = "var(--text-dim)";
+            if (data.financials) {
+                const claimAmt = data.financials.claim_amount_inr != null ? data.financials.claim_amount_inr : 0;
+                document.getElementById('finClaim').innerText = "₹" + claimAmt.toLocaleString();
+                const netEl = document.getElementById('finNet');
+                const netRoi = data.financials.net_roi_rupees || 0;
+                if (netRoi > 0) {
+                    netEl.innerText = "+₹" + netRoi.toLocaleString();
+                    netEl.style.color = "var(--success)";
+                } else {
+                    netEl.innerText = "₹" + netRoi.toLocaleString();
+                    netEl.style.color = "var(--text-dim)";
+                }
             }
         }
 
