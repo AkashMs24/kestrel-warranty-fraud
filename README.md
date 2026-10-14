@@ -2,7 +2,8 @@
 
 > 🌐 **Live Cloud Deployment & Investigation Desk:** [https://kestrel-warranty-fraud.onrender.com](https://kestrel-warranty-fraud.onrender.com)  
 > 📖 **Interactive API Documentation (Swagger):** [https://kestrel-warranty-fraud.onrender.com/docs](https://kestrel-warranty-fraud.onrender.com/docs)  
-> 📊 **Health Check Endpoint:** [https://kestrel-warranty-fraud.onrender.com/health](https://kestrel-warranty-fraud.onrender.com/health)
+> 📊 **Health Check Endpoint:** [https://kestrel-warranty-fraud.onrender.com/health](https://kestrel-warranty-fraud.onrender.com/health)  
+> 🎥 **3-Minute Walkthrough Video:** [Google Drive Recording](https://drive.google.com/file/d/1_CGa9kTkivnh4RlTo_THvXOjYV3vPob3/view?usp=sharing)
 
 A production-ready fraud detection pipeline for Kestrel Home Appliances' warranty claims. Built for the D2C Operations team to flag suspicious claims before payout, within the investigation desk's capacity of 40 reviews/month.
 
